@@ -7,7 +7,7 @@ export default class MenuScene extends FlappyBirdScene {
     }
 
     preload(){
-        this.load.image("fondo","assets/sky.png");
+        this.load.image("fondo","assets/fondo.jpg");
     }
 
     create(){
