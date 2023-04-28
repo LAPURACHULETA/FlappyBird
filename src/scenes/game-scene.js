@@ -12,12 +12,14 @@ export default class GameScene extends FlappyBirdScene{
         this.pauseButton = null; 
         this.paused = false; 
         this.isGameOver=false;
+       this.birdColider=false;
     } 
     preload(){
-        
-        this.load.image("bird","assets/bird.png");
+       // scene.load.spritesheet("bird");
+        //this.load.image("bird","assets/bird.png");
         this.load.image("pipe","assets/pipe.png");
         this.load.image("pauseButton","assets/pause.png");
+        this.load.spritesheet("bird","assets/birdSprite.png",{frameWidth: 16,frameHeight:16})
     }
     create(){
         super.create(); 
@@ -27,7 +29,7 @@ export default class GameScene extends FlappyBirdScene{
 
         //this.physics.add.collider(this.pipes, this.bird);
         this.pipeSystem=new PipeSystem(this,this.backgroundLayer.game);
-        this.physics.add.collider(this.bird,this.pipeSystem.getGroup(), this.gameOver,null,this);
+        this.birdColider=this.physics.add.collider(this.bird,this.pipeSystem.getGroup(), this.gameOver,null,this);
         this.isGameOver=false;
         this.score = new Score(this,16,16,this.backgroundLayer.ui);
         this.pauseButton = this.add.image(this.config.width - 10 , 10,"pauseButton")
@@ -54,6 +56,7 @@ export default class GameScene extends FlappyBirdScene{
    
     
     gameOver(){
+       this.birdColider.destroy();
         this.isGameOver=true;
         this.pipeSystem.stop(); 
         this.pauseButton.setVisible(false);  

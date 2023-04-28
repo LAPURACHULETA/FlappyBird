@@ -4,14 +4,15 @@ import MenuScene from "./scenes/menu-scene";
 import ScoreScene from "./scenes/score-scene";
 
 const SHARED_CONFIG={
-  width: 400, //800
-  height: 600, //600
+  width: 400, //1000
+  height: 600, //500
   pixelArt: true,
 
 }
 const config={
   type: Phaser.AUTO,
   ...SHARED_CONFIG,
+  pixelArt: true,
   physics:{
     default:"arcade",
     //pixelAr
