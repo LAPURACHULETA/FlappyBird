@@ -33,7 +33,7 @@ export default class Bird extends Phaser.GameObjects.Sprite{
             delay: 2, 
             callback: () => {
                 this.checkLoseAnimation(loseTimer, endcallback); 
-            }, 
+            },
             loop: true
         }) 
     }

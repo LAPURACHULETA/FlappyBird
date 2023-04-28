@@ -29,7 +29,7 @@ export default class PipeSystem{
          });
     } 
     update(){
-      if(this.stooped) return; 
+      if(this.stooped||this.scene.paused) return; 
 
       for(let i=0;i<this.pipes.length;i++){
             const pipe=this.pipes[i];
@@ -51,7 +51,17 @@ export default class PipeSystem{
       })
       
     }
-    
+    pause(){
+      if(this.spawnTimer){
+        this.spawnTimer.paused=true;
+      }
+    }
+    resume(){
+      if(this.spawnTimer){
+        this.spawnTimer.paused=false;
+      }
+
+    }
     spawnPipe(){
        let pipe=null;
        //Object pooling

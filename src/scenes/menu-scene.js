@@ -38,10 +38,12 @@ export default class MenuScene extends FlappyBirdScene {
     }
 
     playButton_OnClick(){
+        this.hideMenu();
         this.scene.start("GameScene"); 
     }
 
     scoreButton_OnClick(){
+        this.hideMenu();
         this.scene.start("ScoreScene"); 
     }
 

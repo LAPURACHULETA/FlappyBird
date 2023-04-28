@@ -20,10 +20,15 @@ export default class ScoreScene extends FlappyBirdScene{
         this.backgroundLayer.ui.add(highScoreText);
 
         const back =  this.add.text(this.config.width - 16, 16, "Back", { fotnsize: "24px" })
+        
         .setOrigin(1, 0)
         .setInteractive(); 
-
-        back.on("pointerup", () => this.scene.start("MenuScene")); 
+       
+        back.on("pointerup", () => 
+        {  
+            this.hideMenu();
+            this.scene.start("MenuScene")
+        }); 
         back.on("pointerover", () => back.setFill("#0F0")); 
         back.on("pointerout", () => back.setFill("#FFF"));
 
