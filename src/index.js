@@ -18,7 +18,7 @@ const config={
     //pixelAr
     arcade:{
       gravity:{y:400},
-      debug: true
+      debug: false
     }
     
   },

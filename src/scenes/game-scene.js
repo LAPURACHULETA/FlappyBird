@@ -23,7 +23,7 @@ export default class GameScene extends FlappyBirdScene{
     }
     create(){
         super.create(); 
-        
+        this.paused = false;
         this.bird=new Bird(this,100,this.config.height/2,"bird");
         this.backgroundLayer.game.add(this.bird);
 
